@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.thnki.learning">
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+        </activity>
+        <activity
+            android:name=".activities.ExternalFileReadWriteActivity"
+            android:label="External Storage" />
+        <activity
+            android:name=".activities.InternalFileReadWriteActivity"
+            android:label="Internal Storage" />
+        <activity
+            android:name=".activities.SingleTopActivity"
+            android:launchMode="singleTop"
+            android:taskAffinity="com.saleem.test1" />
+        <activity
+            android:name=".activities.SingleInstanceActivity"
+            android:launchMode="singleInstance"
+            android:taskAffinity="com.saleem.test2" />
+        <activity
+            android:name=".activities.SingleTaskActivity"
+            android:launchMode="singleTask"
+            android:taskAffinity="com.saleem.test3" />
+        <activity
+            android:name=".activities.StandardActivity"
+            android:launchMode="standard"
+            android:taskAffinity="com.saleem.test4" />
+        <activity android:name=".activities.LaunchModeTestActivity" />
+        <activity android:name=".activities.BroadcastReceiverTestActivity" />
+        <activity android:name=".activities.ServiceTestActivity" />
+        <activity android:name=".activities.ThreadTestActivity" />
+
+        <service
+            android:name=".services.MyService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <receiver
+            android:name=".broadcast.receivers.MyReceiver1"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter android:priority="1">
+                <action android:name="com.thnki.br.action" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".broadcast.receivers.MyReceiver2"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter android:priority="2">
+                <action android:name="com.thnki.br.action" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".activities.ListActivity"
+            android:label="Activity List">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
